@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="Ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleForm.css">
+    <title>MyForm</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="form">
+            <form action="#" id="form" name="myForm" method="post" enctype="multipart/form-data" >
+                    <select name="typeContribution" class="select" _req>
+                        <option hidden>Вид вклада</option>
+                        <option value="replenished">Пополняемый</option>
+                        <option value="emergency">Срочный</option>
+                    </select>
+                    <select name="deadlineContribution1" class="select" _req>
+                        <option value="1" hidden>Срок вклада</option>
+                        <option value="1">6 месяцев - 20%</option>
+                        <option value="2">1 год - 22%</option>
+                        <option value="3">1,5 года - 15%</option>
+                        <option value="4">2 года - 10%</option>
+                    </select>
+                    <select name="deadlineContribution1" class="select" _req>
+                        <option value="-1" hidden>Срок вклада</option>
+                        <option value="1">3 месяца - 20%</option>
+                        <option value="2">6 месяцев - 22%</option>
+                        <option value="3">9 месяцев - 23%</option>
+                        <option value="4">1 год - 24%</option>
+                        <option value="5">1,5 года - 18%</option>
+                        <option value="6">2 года - 15%</option>
+                    </select>
+                <input placeholder="Сумма, руб" type="number" name="sum" _req class="sum">
+                <button type="submit">Рассчитать</button>
+            </form>
+        </div>
+        <div class="result">
+            <textarea disabled name="result" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+    <script src="js/formScript.js"></script>
+</body>
+
+</html>

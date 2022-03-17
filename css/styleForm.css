@@ -1,0 +1,24 @@
+.body{
+    background-color: white;
+}
+
+.main{
+    display: flex;
+}
+
+.form
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    width: 200px;
+    height: 200px;
+}
+.select
+{
+    width: 150px;
+    height: 50px;
+}
+.result{
+    padding-left: 10px;
+    padding-top: 20px;
+}
