@@ -38,36 +38,54 @@ body {
     font-size: 14px;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-.wrapper {
-    padding: 30px;
+.wraper {
+    position: relative;
+    width: 100%;
     min-height: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-
-.title{
+.wrapper_title {
     font-size: 30px;
     font-weight: 700;
     color:white;
     margin: 0px 0px 30px 0px;
 }
 
-.image-slider{
-    padding: 30px 0 70px 0;
+.swiper-container {
+    width: 900px;
+    height: 450px;
 }
 
-.image-slider__wrapper {
+.item_slide {
+    padding: 40px, 0px, 60px;
 }
 
-.image-slider__slide{
+.item__img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
-.image-slider__image{
-    text-align: center
-}
-
-.image-slider__image img{
+.item__img img {
     max-width: 100%;
-    width: 500px;
-    height: 650px;
+    height: 100%;
+    object-fit: cover;
 }
+
+.swiper-pagination-bullet {
+    width: 25px;
+    height: 25px;
+    border: 0px solid #333;
+    background: #333;
+}
+
