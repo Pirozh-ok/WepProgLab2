@@ -7,16 +7,13 @@ function changeSelect() {
     type = document.getElementById('typeContribution');
     clearSelect(listDeadlineShow);
 
-    if (type.value == 1)
-        addDeadline(deadline1, listDeadlineShow);
-    else if (type.value == 2)
-        addDeadline(deadline2, listDeadlineShow);
+    if (type.value == 1) addDeadline(deadline1, listDeadlineShow);
+    else if (type.value == 2) addDeadline(deadline2, listDeadlineShow);
 }
 
 function clearSelect(listDeadlineShow) {
-    for (let i = listDeadlineShow.options.length - 1; i >= 1; i--) {
+    for (let i = listDeadlineShow.options.length - 1; i >= 1; i--)
         listDeadlineShow.options[i] = null;
-    }
 }
 
 function addDeadline(values, listDeadlineShow) {
@@ -47,9 +44,57 @@ function validation() {
         return;
     }
 
-    Calculate();
+    let resultSum = Calculate(type.value, index, sum.value);
+    let textArea = document.getElementById('result');
+    let indexType = type.selectedIndex;
+    textArea.textContent = "Вклад \"" + type[indexType].textContent +"\" на срок \"" + listDeadlineShow[index].textContent + "\" На сумму " + sum.value + " руб. В конце срока вы получите " + resultSum + " руб.";
 }
 
-function Calculate() {
+function Calculate(type, index, sum) {
+    let resultSum;
+    if (type == 0) {
+        switch (index) {
+            case 1:
+                resultSum = CalculateResultSum(sum, 20, 6);
+                break;
+            case 2:
+                resultSum = CalculateResultSum(sum, 22, 12);
+                break;
+            case 3:
+                resultSum = CalculateResultSum(sum, 15, 18);
+                break;
+            case 4:
+                resultSum = CalculateResultSum(sum, 10, 24);
+                break;
+        }
+    } else {
+        switch (index) {
+            case 1:
+                resultSum = CalculateResultSum(sum, 20, 3);
+                break;
+            case 2:
+                resultSum = CalculateResultSum(sum, 22, 6);
+                break;
+            case 3:
+                resultSum = CalculateResultSum(sum, 23, 9);
+                break;
+            case 4:
+                resultSum = CalculateResultSum(sum, 24, 12);
+                break;
+            case 5:
+                resultSum = CalculateResultSum(sum, 18, 18);
+                break;
+            case 6:
+                resultSum = CalculateResultSum(sum, 15, 24);
+                break;
+        }
+    }
+    return resultSum;
+}
 
+function CalculateResultSum(sum, proc, deadline) {
+    for (let i = 0; i < deadline; i++)
+        sum *= 1 + proc / 100;
+
+    return sum;
 }
