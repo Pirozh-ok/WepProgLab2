@@ -9,7 +9,6 @@ function changeSelect() {
 
     if (type.value == 1)
         addDeadline(deadline1, listDeadlineShow);
-
     else if (type.value == 2)
         addDeadline(deadline2, listDeadlineShow);
 }
@@ -32,11 +31,6 @@ function validation() {
     let type = document.getElementById('typeContribution');
     let listDeadlineShow = document.getElementById('deadlineContribution');
     let index = listDeadlineShow.selectedIndex;
-
-    console.log(type.value);
-    console.log(index);
-    console.log(listDeadlineShow[index]);
-    console.log(sum.value);
 
     if (type == null || type.value == 0) {
         alert("Выберите вид вклада");
