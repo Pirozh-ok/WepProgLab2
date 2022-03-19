@@ -1,75 +1,61 @@
-"use strict"
-/*
-form.addEventListener('submit', function (event) {
-    event.preventDefault()
-    console.log('clicked on validate')
-  })
+let deadline1 = ["6 месяцев - 20%", "1 год - 22%", "1,5 года - 15%", "2 года - 10%"];
+let deadline2 = ["3 месяца - 20%", "6 месяцев - 22%", "9 месяцев - 23%", "1 год - 24%", "1,5 года - 18%", "2 года - 15%"];
+let type = document.getElementById('typeContribution');
 
-const form = document.getElementById('form');
-var sum = form.querySelector('.sum');*/
-function test(){
-alert(sum.value);
-}
-/*if(sum.value > 0){
-    console.log('WORK');
-}
-else {
-    console.log('DONTWORK')
-}*/
+function changeSelect() {
+    let listDeadlineShow = document.getElementById('deadlineContribution');
+    type = document.getElementById('typeContribution');
+    clearSelect(listDeadlineShow);
 
-/*document.addEventListener('DOMContentLoaded', function(){
+    if (type.value == 1)
+        addDeadline(deadline1, listDeadlineShow);
+
+    else if (type.value == 2)
+        addDeadline(deadline2, listDeadlineShow);
+}
+
+function clearSelect(listDeadlineShow) {
+    for (let i = listDeadlineShow.options.length - 1; i >= 1; i--) {
+        listDeadlineShow.options[i] = null;
+    }
+}
+
+function addDeadline(values, listDeadlineShow) {
+    listDeadlineShow.append(new Option("Срок вклада", '0', true));
+    for (let i = 0; i < values.length; i++)
+        listDeadlineShow.append(new Option(values[i].toString(), (i + 1).toString()));
+}
+
+function validation() {
     const form = document.getElementById('form');
-    form.addEventListener('submit', formSend);
+    let sum = document.getElementById('sum');
+    let type = document.getElementById('typeContribution');
+    let listDeadlineShow = document.getElementById('deadlineContribution');
+    let index = listDeadlineShow.selectedIndex;
 
-    async function formSend(e){
-        e.preventDefault();
+    console.log(type.value);
+    console.log(index);
+    console.log(listDeadlineShow[index]);
+    console.log(sum.value);
 
-        let error = formValidate(form);
-
-        if (error===0){
-
-        }else {
-            alert('Заполните обязательные поля');
-        }
+    if (type == null || type.value == 0) {
+        alert("Выберите вид вклада");
+        return;
     }
 
-    function formValidate(form){
-        let error = 0;
-        let formReq = document.querySelectorAll('._req');
-
-        for(let index = 0; index < formReq.length; index++){
-            const input = formReq[index];
-            formRemoveError(input);
-
-            if(input.classList.contains('._sum')){
-                if(checkSum(input)){
-                    formAddError(input);
-                    error++;
-                }                
-            }else if(input.getAttripute("type") === "input" && input.value <= 0){
-                formAddError(input);
-                error++;
-            } else {
-                if(input.value === ''){
-                    formAddError(input);
-                    error++;
-                }
-            }
-        }
-        return error;
+    if (listDeadlineShow == null || index == 0) {
+        alert("Выберите срок вклада");
+        return;
     }
 
-    function formAddError(input){
-        input.parentElement.classList.add('_error');
-        input.classList.add('_error');
+    if (sum.value == "" || sum.value <= 0) {
+        alert("Значение суммы не может быть пустым или меньше 0!");
+        return;
     }
 
-    function formRemoveError(input){
-        input.parentElement.classList.remove('_error');
-        input.classList.remove('_error');
-    }
+    Calculate();
+}
 
-    function checkSum(input){
-        return sum>0;
-    }
-});*/
+function Calculate() {
+
+}
