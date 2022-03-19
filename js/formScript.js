@@ -1,18 +1,21 @@
 "use strict"
-
+/*
 form.addEventListener('submit', function (event) {
     event.preventDefault()
     console.log('clicked on validate')
   })
 
 const form = document.getElementById('form');
-var sum = form.querySelector('.sum');
-if(sum.value > 0){
+var sum = form.querySelector('.sum');*/
+function test(){
+alert(sum.value);
+}
+/*if(sum.value > 0){
     console.log('WORK');
 }
 else {
     console.log('DONTWORK')
-}
+}*/
 
 /*document.addEventListener('DOMContentLoaded', function(){
     const form = document.getElementById('form');

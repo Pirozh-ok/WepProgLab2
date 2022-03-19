@@ -7,42 +7,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleForm.css">
     <title>MyForm</title>
+    <script src="js/formScript.js"></script>
+    <script>
+        let deadline1 = ["6 месяцев - 20%", "1 год - 22%", "1,5 года - 15%", "2 года - 10%"];
+        let deadline2 = ["3 месяца - 20%", "6 месяцев - 22%", "9 месяцев - 23%", "1 год - 24%", "1,5 года - 18%", "2 года - 15%"];
+        let type = document.getElementById('typeContribution');
+
+        function changeSelect() {
+            let listDeadlineShow = document.getElementById('deadlineContribution');
+            type = document.getElementById('typeContribution');
+            clearSelect(listDeadlineShow);
+            if (type.value == 0)
+                addDeadline(deadline1);
+
+            else if (type.value == 1)
+                addDeadline(deadline2);
+        }
+
+        function clearSelect(listDeadlineShow) {
+            listDeadlineShow = document.getElementById('deadlineContribution');
+            for (let i = listDeadlineShow.options.length - 1; i >= 1; i--) {
+                listDeadlineShow.options[i] = null;
+            }
+        }
+
+        function addDeadline(values, listDeadlineShow) {
+            listDeadlineShow.append(new Option("Срок вклада", '0', true));
+            for (let i = 0; i < values.length; i++)
+                listDeadlineShow.append(new Option(values[i].toString(), (i + 1).toString()));
+        }
+
+        function validation() {
+            const form = document.getElementById('form');
+            let sum = form.querySelector('.sum');
+            let type = document.getElementById('typeContribution');
+            let index = listDeadlineShow.selectedIndex;
+
+            console.log(type)
+
+            if (type == null || type.value == 0) {
+                alert("Выберите вид вклада");
+                return;
+            }
+
+            if (listDeadlineShow == null || listDeadlineShow[index] == "Срок вклада") {
+                alert("Выберите срок вклада");
+                return;
+            }
+
+            if (sum.value == "" || sum.value <= 0) {
+                alert("Значение суммы не может быть пустым или меньше 0!");
+                return;
+            }
+
+            Calculate();
+        }
+
+        function Calculate() {
+
+        }
+    </script>
 </head>
 
 <body>
-    <div class="main">
-        <div class="form">
-            <form action="#" id="form" name="myForm" method="post" enctype="multipart/form-data" >
-                    <select name="typeContribution" class="select" _req>
-                        <option hidden>Вид вклада</option>
-                        <option value="replenished">Пополняемый</option>
-                        <option value="emergency">Срочный</option>
-                    </select>
-                    <select name="deadlineContribution1" class="select" _req>
-                        <option value="1" hidden>Срок вклада</option>
-                        <option value="1">6 месяцев - 20%</option>
-                        <option value="2">1 год - 22%</option>
-                        <option value="3">1,5 года - 15%</option>
-                        <option value="4">2 года - 10%</option>
-                    </select>
-                    <select name="deadlineContribution1" class="select" _req>
-                        <option value="-1" hidden>Срок вклада</option>
-                        <option value="1">3 месяца - 20%</option>
-                        <option value="2">6 месяцев - 22%</option>
-                        <option value="3">9 месяцев - 23%</option>
-                        <option value="4">1 год - 24%</option>
-                        <option value="5">1,5 года - 18%</option>
-                        <option value="6">2 года - 15%</option>
-                    </select>
-                <input placeholder="Сумма, руб" type="number" name="sum" _req class="sum">
-                <button type="submit">Рассчитать</button>
-            </form>
-        </div>
-        <div class="result">
-            <textarea disabled name="result" cols="30" rows="10"></textarea>
-        </div>
+<div class="main">
+    <div class="form">
+        <form action="#" id="form" name="myForm" method="post" enctype="multipart/form-data">
+            <select id="typeContribution" name="typeContribution" class="select" onchange="changeSelect()">
+                <option hidden>Вид вклада</option>
+                <option value="0">Пополняемый</option>
+                <option value="1">Срочный</option>
+            </select>
+            <select id="deadlineContribution" name="deadlineContribution" class="select">
+                <option value="1" hidden>Срок вклада</option>
+                <option value="2">6 месяцев - 20%</option>
+                <option value="3">1 год - 22%</option>
+                <option value="4">1,5 года - 15%</option>
+                <option value="5">2 года - 10%</option>
+            </select>
+            <input id="sum" placeholder="Сумма, руб" type="number" name="sum">
+            <button type="button" onclick="validation()">Рассчитать</button>
+        </form>
     </div>
-    <script src="js/formScript.js"></script>
+    <div class="result">
+        <textarea disabled name="result" cols="30" rows="10"></textarea>
+    </div>
+</div>
 </body>
 
 </html>
