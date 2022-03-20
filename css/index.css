@@ -1,19 +1,18 @@
 .container1 {
     color: black;
     width: 70%;
+    font-size: 20px;
     margin: 0 auto;
-    font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
 }
 
 .title{
-
     text-align: center;
 }
 
 .title1{
     padding-bottom: 30px;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 .image{
@@ -29,7 +28,7 @@
     color: black;
     width: 70%;
     margin: 0 auto;
-    font-size: 33px;
+    font-size: 23px;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -41,46 +40,46 @@
 
 .container2{
     margin: 0 auto;
-    width: 60%;
+    width: 45%;
     display: flex;
-    padding-top: 200px;
-    padding-left: 200px;
-    text-align: left;
+    padding-top: 70px;
+    text-align: center;
     color: black;
-    font-size: 33px;
+    font-size: 23px;
     font-family: 'Times New Roman', Times, serif;
 }
 
 .container3{
-    padding-top: 100px;
+    padding-top: 50px;
     text-align: center;
     color: black;
-    font-size: 33px;
+    font-size: 23px;
     font-family: 'Times New Roman', Times, serif;
 }
 
 .container2__2 {
-    padding-left: 400px;
+    width: 50%;
 }
 
 .container2__1 {
-
+    width: 50%;
 }
 
 .link{
-    width: 50%;
-    color: black;
-    font-size: 33px;
-    font-family: 'Times New Roman', Times, serif;
-    padding-top: 200px;
+    display: flex;
+    width: 30%;
     margin: 0 auto;
-    padding-left: 200px;
+    color: black;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 100px;
+    text-align: center;
 }
 
 .link__1 {
-
+    width: 50%;
 }
 
 .link__2 {
-    padding-left: 100px;
+    width: 50%;
 }

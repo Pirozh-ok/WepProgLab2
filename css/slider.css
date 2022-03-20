@@ -89,3 +89,19 @@ body {
     background: #333;
 }
 
+.link{
+    width: 20%;
+    margin: 50px auto 0;
+    font-size: 25px;
+}
+
+A {
+    color: #cecece;
+}
+A:visited {
+    color: #cecece;
+}
+A:active {
+    color: #ffff00;
+}
+

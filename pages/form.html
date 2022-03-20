@@ -10,30 +10,33 @@
 </head>
 
 <body>
-<div class="main">
-    <div class="form">
-        <form action="#" id="form" name="myForm" method="post" enctype="multipart/form-data">
-            <select id="typeContribution" name="typeContribution" class="select" onchange="changeSelect()">
-                <option value="0" hidden>Вид вклада</option>
-                <option value="1">Пополняемый</option>
-                <option value="2">Срочный</option>
-            </select>
-            <select id="deadlineContribution" name="deadlineContribution" class="select">
-                <option value="0" hidden>Срок вклада</option>
-                <option value="1">6 месяцев - 20%</option>
-                <option value="2">1 год - 22%</option>
-                <option value="3">1,5 года - 15%</option>
-                <option value="4">2 года - 10%</option>
-            </select>
-            <input id="sum" placeholder="Сумма, руб" type="number">
-            <button type="button" onclick="validation()">Рассчитать</button>
-        </form>
+    <div class="main">
+        <div class="form">
+            <form action="#" id="form" name="myForm" method="post" enctype="multipart/form-data">
+                <div class="select">
+                    <select id="typeContribution" name="typeContribution" class="select__1" onchange="changeSelect()">
+                        <option value="0" hidden>Вид вклада</option>
+                        <option value="1">Пополняемый</option>
+                        <option value="2">Срочный</option>
+                    </select>
+                    <select id="deadlineContribution" name="deadlineContribution" class="select__2">
+                        <option value="0" hidden>Срок вклада</option>
+                        <option value="1">6 месяцев - 20%</option>
+                        <option value="2">1 год - 22%</option>
+                        <option value="3">1,5 года - 15%</option>
+                        <option value="4">2 года - 10%</option>
+                    </select>
+                </div>
+                <input class="sum" id="sum" placeholder="Сумма, руб" type="number">
+                <button class="button" type="button" onclick="validation()">Рассчитать</button>
+            </form>
+        </div>
+        <textarea id="result" disabled name="result" cols="30" rows="10" class="result"></textarea>
+
     </div>
-    <div class="result">
-        <textarea id="result" disabled name="result" cols="30" rows="10"></textarea>
+    <div class="link">
+        <a href="../index.html">Вернуться на главную</a>
     </div>
-</div>
 <script src="../js/formScript.js"></script>
 </body>
-
 </html>

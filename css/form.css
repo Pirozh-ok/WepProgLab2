@@ -1,24 +1,57 @@
-.body{
-    background: blue;
-}
 
 .main{
+    background-color: white;
+    width: 40%;
+    height: 70%;
     display: flex;
+    margin: 100px auto 0;
 }
 
 .form
 {
+    width: 35%;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    width: 200px;
-    height: 200px;
+    font-size: 30px;
+    height: 100%;
 }
-.select
-{
+.select__1{
+    font-size: 25px;
+    width: 200px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.select__2{
+    font-size: 25px;
+    width: 200px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.sum{
+    width: 50%;
+    text-align: center;
     width: 150px;
     height: 50px;
+    margin-bottom: 10px;
+    font-size: 25px;
 }
 .result{
-    padding-left: 10px;
-    padding-top: 20px;
+    width: 60%;
+    margin-top: 20px;
+    text-align: left;
+    resize: none;
+    font-size: 20px ;
+}
+.button{
+    text-align: center;
+    width: 70%;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 auto;
+    background-color: #72ff1e;
+}
+.link{
+    width: 20%;
+    margin: 50px auto 0;
+    font-size: 25px;
 }
