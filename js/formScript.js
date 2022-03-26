@@ -44,15 +44,17 @@ function validation() {
         return;
     }
 
-    let resultSum = Calculate(type.value, index, sum.value);
+    let resultSum = Calculate(type.value, index-1, sum.value);
     let textArea = document.getElementById('result');
     let indexType = type.selectedIndex;
+
     textArea.textContent = "Вклад \"" + type[indexType].textContent +"\" на срок \"" + listDeadlineShow[index].textContent + "\" На сумму " + sum.value + " руб. В конце срока вы получите " + resultSum + " руб.";
 }
 
 function Calculate(type, index, sum) {
     let resultSum;
-    if (type == 0) {
+
+    if (type == 1) {
         switch (index) {
             case 1:
                 resultSum = CalculateResultSum(sum, 20, 6);
@@ -93,8 +95,5 @@ function Calculate(type, index, sum) {
 }
 
 function CalculateResultSum(sum, proc, deadline) {
-    for (let i = 0; i < deadline; i++)
-        sum *= 1 + proc / 100;
-
-    return sum;
+    return sum = parseFloat(sum) + parseInt(sum * parseFloat(proc*(deadline/12)/100));
 }
